@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title_content %}Information security documents{% endblock %}
+
+{% block body_content %}
+
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>{{ text }}</p>
+        <img src="{% static 'main/img/test.jpg' %}" alt="img">
+        <br>
+        <button class="btn btn-warning">Back on main page</button>
+    </div>
+{% endblock %}
