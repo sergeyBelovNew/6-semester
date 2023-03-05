@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title_content %}News{% endblock %}
+
+{% block body_content %}
+    <div class="features">
+        <h1>Новости:</h1>
+        {% for inter in news%}
+            <div class="alert alert-warning">
+                <h3>{{ inter.title }}</h3>
+                <p>{{ inter.anons }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

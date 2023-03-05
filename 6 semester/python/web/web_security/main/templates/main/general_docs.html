@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title_content %}{{ title }}{% endblock %}
+
+{% block body_content %}
+
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <img src="{% static 'main/img/table.png' %}" alt="img">
+        <br>
+         <p>{{ text }}</p>
+        <br>
+        <button class="btn btn-warning">Back on main page</button>
+    </div>
+
+{% endblock %}
