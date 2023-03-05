@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'main',
+    'news',
     'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',

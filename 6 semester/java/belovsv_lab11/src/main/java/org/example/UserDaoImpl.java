@@ -1,11 +1,10 @@
 package org.example;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 
 public class UserDaoImpl implements UserDao {
 
-    private static final String GET_BY_ID_QUERY = "SELECT * FROM USERDATA U WHERE U.ID = ?;";
+    private static final String GET_BY_ID_QUERY = "SELECT * FROM USERDATA WHERE ID = ?;";
     private static final String INSERT_USER_QUERY = "INSERT INTO USERDATA(ID, NAME_EMPLOYER, SURNAME," +
             " SECOND_NAME, POSITION_EMPLOYER , DEPARTMENT, SALARY) VALUES(?,?,?,?,?,?,?);";
 
@@ -15,16 +14,16 @@ public class UserDaoImpl implements UserDao {
             PreparedStatement selectStatement = connection.prepareStatement(GET_BY_ID_QUERY);
             selectStatement.setInt(1, id);
             ResultSet result = selectStatement.executeQuery();
-            result.next();
-
             User user = new User();
-            user.setId(result.getInt("id"));
-            user.setNameEmployer(result.getString("name"));
-            user.setSurname(result.getString("surname"));
-            user.setSecondName(result.getString("secondName"));
-            user.setPositionEmployer(result.getString("position"));
-            user.setDepartment(result.getString("department"));
-            user.setSalary(result.getInt("salary"));
+            while(result.next()) {
+                user.setId(result.getInt("id"));
+                user.setNameEmployer(result.getString("name_employer"));
+                user.setSurname(result.getString("surname"));
+                user.setSecondName(result.getString("second_name"));
+                user.setPositionEmployer(result.getString("position_employer"));
+                user.setDepartment(result.getString("department"));
+                user.setSalary(result.getInt("salary"));
+            }
             return user;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -50,9 +49,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void drop(int id) {
-        //need repair
         try (Connection connection = DbConnector.getConnection()) {
-            PreparedStatement dropStatement = connection.prepareStatement(GET_BY_ID_QUERY);
+            PreparedStatement dropStatement = connection.prepareStatement(GET_BY_ID_QUERY, ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
             dropStatement.setInt(1, id);
             ResultSet result = dropStatement.executeQuery();
             result.next();
@@ -64,7 +63,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void change(User user) {
-        //need repair
         try (Connection connection = DbConnector.getConnection()) {
             PreparedStatement changeStatement = connection.prepareStatement(INSERT_USER_QUERY);
             changeStatement.setInt(1, user.getId());
