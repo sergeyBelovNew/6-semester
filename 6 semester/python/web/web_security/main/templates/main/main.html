@@ -1,16 +1,13 @@
 {% extends 'main/layout.html' %}
 {% load static %}
-{% block title_content %}
-Information security documents
-{% endblock %}
+{% block title_content %}Главная страница{% endblock %}
 
 {% block body_content %}
 
-    <div class="features">
-        <h1>{{ title }}</h1>
-        <h2>{{ title_inf_sec }}</h2>
-        <img src="{% static 'main/img/hello.jpg' %}" alt="img">
+<div class="features">
+    <h1>{{ title }}</h1>
+    <img src="{% static 'main/img/security-budget-meme-1.png' %}" alt="img">
 
-    </div>
+</div>
 
 {% endblock %}

@@ -3,16 +3,22 @@ from django.shortcuts import render
 
 def index_main(request):
     data_for_main = {
-        'title': 'Информационная безопасность',
-        'title_inf_sec': 'Информационная безопасность полезное:',
+        'title': 'Данный сайт предназначен для проведения расчетов затрат на построение защенных информационных систем',
     }
     return render(request, 'main/main.html', data_for_main)
 
 
-def index_intro(request):
+def index_calculator(request):
     data_for_intro = {
-        'title': 'Info security documents',
-        'title_inf_sec': 'Информационная безопасность',
+
+    }
+    return render(request, 'main/calculator.html', data_for_intro)
+
+
+def index_general_docs(request):
+    data_docs = {
+        'title': 'Основы защиты информации',
+        'title_inf_sec': 'Определение информационной безопасности',
         'intro_text': 'Информационная безопасность (ИБ) – это состояние информационной системы,'
                       ' при котором она наименее восприимчива к вмешательству и нанесению ущерба со стороны третьих лиц.'
                       'Безопасность данных также подразумевает управление рисками, которые связаны с разглашением информации'
@@ -20,32 +26,14 @@ def index_intro(request):
                       'в организации, – это комплекс действий, направленных на решение проблемы защиты информационной среды в'
                       ' рамках компании. При этом информация не должна быть ограничена в использовании и динамичном развитии'
                       'для уполномоченных лиц.',
+        'title_directions': 'Основные документы о информационной безопасности',
         'directions': 'Направления обеспечения безопасности вообще рассматриваются как нормативно-правовые категории, '
                       'определяющие комплексные меры защиты информации на государственном уровне, на уровне предприятия '
                       'и организации, на уровне отдельной личности. С учетом сложившейся практики обеспечения '
                       'информационной безопасности выделяют следующие направления защиты информации:',
     }
-    return render(request, 'main/intro.html', data_for_intro)
-
-
-def index_general_docs(request):
-    data_docs = {
-        'title': 'Основные документы по ИБ',
-        'text': 'На данной картинке представленны основные документы используемые в области ИБ',
-    }
     return render(request, 'main/general_docs.html', data_docs)
-
-
-def index_docs(request):
-    data_docs = {
-        'title': 'Документы по ИБ',
-    }
-    return render(request, 'main/docs.html', data_docs)
 
 
 def index_about(request):
     return render(request, 'main/about.html')
-
-
-def index_other(request):
-    return render(request, 'main/other.html')

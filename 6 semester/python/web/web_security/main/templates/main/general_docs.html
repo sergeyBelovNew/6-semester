@@ -4,13 +4,21 @@
 
 {% block body_content %}
 
-    <div class="features">
-        <h1>{{ title }}</h1>
-        <img src="{% static 'main/img/table.png' %}" alt="img">
-        <br>
-         <p>{{ text }}</p>
-        <br>
-        <button class="btn btn-warning">Back on main page</button>
-    </div>
+<div class="features">
+    <h1>{{ title }}</h1>
+    <h2>{{ title_inf_sec }}</h2>
+    <p>{{ intro_text }}</p>
+    <br>
+    <img src="{% static 'main/img/triad.png' %}" alt="img">
+    <h2>Направления ИБ</h2>
+    <p>{{ directions }}</p>
+    <img src="{% static 'main/img/main_dir_infsec.png' %}" alt="img">
+    <h2>{{ title_directions }}</h2>
+    <img src="{% static 'main/img/table.png' %}" alt="img">
+    <br>
+    <p>{{ text }}</p>
+    <br>
+    <button class="btn btn-warning">Back on main page</button>
+</div>
 
 {% endblock %}

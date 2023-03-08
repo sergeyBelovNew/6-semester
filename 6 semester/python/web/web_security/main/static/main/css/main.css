@@ -1,23 +1,18 @@
 body {
-    background: #78866b;
+    background: #FFFFFF;
 }
 
-aside {
-    float: left;
-    background: #181818;
-    width: 18%;
-    padding: 2.5%;
-    height: 250vh;
-    color: #fff;
-    border-right: 5px solid #4d4d4d;
+.topnav {
+    background-color: #808080;
+    overflow: hidden;
 }
 
-aside img {
-    width: 100px;
+.topnav  img {
+    width: 150px;
     float: left;
 }
 
-aside .logo {
+.topnav  .logo {
     font-size: 40px;
     margin-left: 40px;
     font-weight: bold;
@@ -25,33 +20,36 @@ aside .logo {
     top: -5px;
 }
 
-aside h3 {
-    font-size: 28px;
-    margin-top: 50px;
-}
-
-aside ul {list-style: none}
-aside ul li {
-    color: #fff;
-    display: block;
+.topnav  ul {list-style: none}
+.topnav  ul li {
+    color: #00FFFF;
+    display: inline;
     margin-top: 20px;
+    margin-right : 3px;
     transition: transition .6s easy;
+    float: left;
+    text-align: center;
+    padding: 10px 16px;
+    padding-left: 85px;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-aside ul li:hover, aside ul a:hover {
+.topnav  ul li:hover, topnav ul a:hover {
     color: #eb5959;
     text-decoration: none;
-    transform: scale(1.1);
+    transform: scale(1.4);
 }
 
 main .features{
     float: left;
-    color: #fff;
+    color: #000000;
     margin-top: 100px;
+    padding-left: 21%;
     text-align: center;
     width: 75%;
 }
 
 main .features h1{font-size: 50px;}
-main .features h1{max-width: 1000px; margin: 20px auto;}
+main .features h1{max-width: 1000px; margin-left: 30px;}
 
