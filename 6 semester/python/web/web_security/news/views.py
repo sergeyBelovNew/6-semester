@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Document
 from .forms import DocumentForm
+from django.views.generic import DetailView
 
 
 def index_news(request):
@@ -15,7 +16,7 @@ def index_create(request):
         form = DocumentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('news')
+            return redirect('news_home')
         else:
             exception = "Ошибка формы"
 
@@ -25,3 +26,9 @@ def index_create(request):
         'exception': exception
     }
     return render(request, "news/create.html", data)
+
+
+class NewsDetailView(DetailView):
+    model = Document
+    template_name = 'news/details_view.html'
+    context_object_name = 'article'

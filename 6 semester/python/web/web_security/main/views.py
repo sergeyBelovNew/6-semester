@@ -37,3 +37,5 @@ def index_general_docs(request):
 
 def index_about(request):
     return render(request, 'main/about.html')
+
+

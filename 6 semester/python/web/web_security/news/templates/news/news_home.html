@@ -9,6 +9,7 @@
     <div class="alert alert-warning">
         <h3>{{ inter.title }}</h3>
         <p>{{ inter.ad }}</p>
+        <a href="{% url 'detail_news' 5 %}" class="button btn-warning">Подробнее</a>
     </div>
     {% endfor %}
     <a href="{% url 'create' %}">
