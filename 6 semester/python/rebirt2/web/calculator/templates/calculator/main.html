@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title_content %}Оборудование{% endblock %}
+
+{% block body_content %}
+<div class="features">
+    <h1>Расчет стоимости оборудования</h1>
+    {% if equipment %}
+    {% for el in equipment %}
+    <div class="alert alert-warning">
+        <h3>{{ el.title }}</h3>
+        <p>{{ el.type }}</p>
+        <a href="{% url 'detail_equipment' el.id %}" class="button btn-warning">Подробнее</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Нету записей</p>
+    {% endif %}
+    <a href="{% url 'create' %}"><button class="btn btn-success">Добавить запись</button></a>
+    <br>
+    <button class="btn btn-warning">Back on main page</button>
+</div>
+
+{% endblock %}
