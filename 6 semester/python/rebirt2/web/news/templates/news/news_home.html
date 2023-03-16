@@ -5,16 +5,18 @@
 {% block body_content %}
 <div class="features">
     <h1>Новости</h1>
-    {% for inter in news%}
+    {% if news %}
+    {% for el in news %}
     <div class="alert alert-warning">
-        <h3>{{ inter.title }}</h3>
-        <p>{{ inter.ad }}</p>
-        <a href="{% url 'detail_news' 5 %}" class="button btn-warning">Подробнее</a>
+        <h3>{{ el.title }}</h3>
+        <p>{{ el.ad }}</p>
+        <a href="{% url 'detail_news' el.id %}" class="button btn-warning">Подробнее</a>
     </div>
     {% endfor %}
-    <a href="{% url 'create' %}">
-        <button class="btn btn-warning">Добавить запись</button>
-    </a>
+    {% else %}
+    <p>Нету записей</p>
+    {% endif %}
+    <a href="{% url 'create' %}"><button class="btn btn-success">Добавить запись</button></a>
     <br>
     <button class="btn btn-warning">Back on main page</button>
 </div>

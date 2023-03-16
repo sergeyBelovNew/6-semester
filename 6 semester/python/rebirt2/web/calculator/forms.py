@@ -1,23 +1,28 @@
+from .models import Equipment
 from django.forms import ModelForm, TextInput, Textarea
 
 
 class EquipmentForm(ModelForm):
     class Meta:
-        model = Equepment
+        model = Equipment
         fields = ['id', 'title', 'type', 'description', 'cost']
 
         widgets = {
             "title": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Текст статьи"
+                'placeholder': "Название"
             }),
-            "ad": TextInput(attrs={
+            "type": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Анонс"
+                'placeholder': "Тип"
             }),
-            "full_text": Textarea(attrs={
+            "description": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': "Текст"
+                'placeholder': "Описание"
+            }),
+            "cost": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': "Стоимость"
             }),
 
         }

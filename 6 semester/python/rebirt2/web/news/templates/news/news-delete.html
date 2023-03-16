@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title_content %}Удаление статьи{% endblock %}
+
+{% block body_content %}
+<div class="features">
+    <h1>Удаление статьи</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-success" type="submit">Удалить статью</button>
+        <br>
+    </form>
+</div>
+
+{% endblock %}

@@ -5,8 +5,9 @@
 {% block body_content %}
 <div class="features">
     <h1>{{ article.title }}</h1>
-    <p>{{ article.full_text }}</p>
-    <p>{{ article.date }}</p>
+    <p>{{ article.type }}</p>
+    <p>{{ article.description }}</p>
+    <p>{{ article.cost }}</p>
     <a href="{% url 'update_news' article.id %}"><button class="btn btn-info">Изменить запись</button></a>
     <a href="{% url 'delete_news' article.id %}"><button class="btn btn-danger">Удалить запись</button></a>
 </div>

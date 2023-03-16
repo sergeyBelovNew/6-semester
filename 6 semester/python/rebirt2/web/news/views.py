@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Document
 from .forms import DocumentForm
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView, DeleteView
 
 
 def index_news(request):
@@ -32,3 +32,16 @@ class NewsDetailView(DetailView):
     model = Document
     template_name = 'news/details_view.html'
     context_object_name = 'article'
+
+
+class NewsUpdateView(UpdateView):
+    model = Document
+    template_name = 'news/create.html'
+
+    form_class = DocumentForm
+
+
+class NewsDeleteView(DeleteView):
+    model = Document
+    success_url = 'news/'
+    template_name = 'news/calculator-delete.html'
