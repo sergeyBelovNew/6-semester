@@ -28,20 +28,20 @@ def index_create(request):
     return render(request, "calculator/create.html", data)
 
 
-class NewsDetailView(DetailView):
+class CalculatorDetailView(DetailView):
     model = Equipment
     template_name = 'calculator/details_view.html'
     context_object_name = 'article'
 
 
-class NewsUpdateView(UpdateView):
+class CalculatorUpdateView(UpdateView):
     model = Equipment
     template_name = 'calculator/create.html'
 
     form_class = EquipmentForm
 
 
-class NewsDeleteView(DeleteView):
+class CalculatorDeleteView(DeleteView):
     model = Equipment
-    success_url = 'calculator/'
+    success_url = '../'
     template_name = 'calculator/calculator-delete.html'

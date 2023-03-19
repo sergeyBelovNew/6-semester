@@ -1,8 +1,8 @@
-package org.example;
+package org.example.models;
 
 public class User {
 
-    private int id;
+    private int idUser;
 
     private String nameEmployer;
 
@@ -16,12 +16,26 @@ public class User {
 
     private int salary;
 
-    public int getId() {
-        return id;
+    public User() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public User(int idUser, String nameEmployer, String surname, String secondName, String positionEmployer,
+                String department, int salary) {
+        this.idUser = idUser;
+        this.nameEmployer = nameEmployer;
+        this.surname = surname;
+        this.secondName = secondName;
+        this.positionEmployer = positionEmployer;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getNameEmployer() {
@@ -75,7 +89,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "idUser=" + idUser +
                 ", name_employer='" + nameEmployer + '\'' +
                 ", surname='" + surname + '\'' +
                 ", secondName='" + secondName + '\'' +

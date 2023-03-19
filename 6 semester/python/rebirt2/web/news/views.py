@@ -25,7 +25,7 @@ def index_create(request):
         'form': form,
         'exception': exception
     }
-    return render(request, "news/create.html", data)
+    return render(request, "news/create_news.html", data)
 
 
 class NewsDetailView(DetailView):
@@ -36,12 +36,12 @@ class NewsDetailView(DetailView):
 
 class NewsUpdateView(UpdateView):
     model = Document
-    template_name = 'news/create.html'
+    template_name = 'news/create_news.html'
 
     form_class = DocumentForm
 
 
 class NewsDeleteView(DeleteView):
     model = Document
-    success_url = 'news/'
-    template_name = 'news/calculator-delete.html'
+    success_url = '../'
+    template_name = 'news/news-delete.html'

@@ -1,5 +1,7 @@
 
-package org.example;
+package org.example.dao;
+
+import org.example.models.User;
 
 /**
  * DAO-класс для работы с данными пользователей

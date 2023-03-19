@@ -1,9 +1,9 @@
 body {
-    background: #FFFFFF;
+    background: #ffeeaa;
 }
 
 .topnav {
-    background-color: #a7a594;
+    background-color: #0099ff;
     overflow: hidden;
 }
 
@@ -22,7 +22,7 @@ body {
 
 .topnav  ul {list-style: none}
 .topnav  ul li {
-    color: #ffffff;
+    color: #ffffee;
     display: inline;
     margin-top: 20px;
     margin-right : 3px;
@@ -36,7 +36,7 @@ body {
 }
 
 .topnav  ul li:hover, topnav ul a:hover {
-    color: #4682B4;
+    color: #ffffee;
     text-decoration: none;
     transform: scale(1.3);
 }

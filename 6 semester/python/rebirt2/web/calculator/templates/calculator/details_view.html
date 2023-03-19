@@ -8,7 +8,7 @@
     <p>{{ article.type }}</p>
     <p>{{ article.description }}</p>
     <p>{{ article.cost }}</p>
-    <a href="{% url 'update_news' article.id %}"><button class="btn btn-info">Изменить запись</button></a>
-    <a href="{% url 'delete_news' article.id %}"><button class="btn btn-danger">Удалить запись</button></a>
+    <a href="{% url 'update_equipment' article.id %}"><button class="btn btn-info">Изменить запись</button></a>
+    <a href="{% url 'delete_equipment' article.id %}"><button class="btn btn-danger">Удалить запись</button></a>
 </div>
 {% endblock %}
