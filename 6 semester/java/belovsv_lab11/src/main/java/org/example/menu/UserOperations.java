@@ -1,14 +1,18 @@
 package org.example.menu;
 
 import org.example.dao.UserDao;
-import org.example.dao.UserDaoImpl;
 import org.example.models.User;
 
 import java.util.Scanner;
 
 public class UserOperations {
 
-    public static void create() {
+    public static void createTable() {
+        UserDao userDao = new UserDao();
+        userDao.createTableUser();
+    }
+
+    public static void createRaw() {
         Scanner intScanner = new Scanner(System.in);
         Scanner strScanner = new Scanner(System.in);
         User user = new User();
@@ -34,8 +38,8 @@ public class UserOperations {
         System.out.println("Введите зарплату:");
         user.setSalary(intScanner.nextInt());
 
-        UserDao userDao = new UserDaoImpl();
-        userDao.create(user);
+        UserDao userDao = new UserDao();
+        userDao.createRaw(user);
         System.out.println("Пользователь добавлен");
     }
 
@@ -45,7 +49,7 @@ public class UserOperations {
         Scanner idScanner = new Scanner(System.in);
         int id = idScanner.nextInt();
 
-        UserDao userDao = new UserDaoImpl();
+        UserDao userDao = new UserDao();
         User user = userDao.getById(id);
         System.out.println("Найден пользователь: " + user);
     }
@@ -56,7 +60,7 @@ public class UserOperations {
         Scanner idScanner = new Scanner(System.in);
         int id = idScanner.nextInt();
 
-        UserDao userDao = new UserDaoImpl();
+        UserDao userDao = new UserDao();
         userDao.drop(id);
         System.out.println("Удален пользователь: ");
     }
@@ -86,18 +90,8 @@ public class UserOperations {
         System.out.println("Введите зарплату:");
         user.setSalary(intScanner.nextInt());
 
-        UserDao userDao = new UserDaoImpl();
-        userDao.create(user);
+        UserDao userDao = new UserDao();
+        userDao.createRaw(user);
         System.out.println("Пользователь добавлен");
-    }
-
-    public static void getCars() {
-        System.out.println("Введите id:");
-        Scanner idScanner = new Scanner(System.in);
-        int id = idScanner.nextInt();
-
-        UserDaoImpl userDao = new UserDaoImpl();
-        User user = userDao.getById(id);
-        System.out.println("Найдены машины: " + userDao.getAllCarsByUserId(user));
     }
 }

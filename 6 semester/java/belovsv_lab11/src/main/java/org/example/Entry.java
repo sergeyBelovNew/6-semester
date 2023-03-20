@@ -4,13 +4,11 @@ import org.example.menu.CarOperations;
 import org.example.menu.Menu;
 import org.example.menu.UserOperations;
 import org.example.dao.CarDao;
-import org.example.dao.UserDaoImpl;
+import org.example.dao.UserDao;
 import org.example.models.Car;
 import org.example.models.User;
 
 import java.util.Scanner;
-
-import static org.example.menu.UserOperations.getCars;
 
 public class Entry {
 
@@ -31,7 +29,7 @@ public class Entry {
         while (!command.equals("end")) {
 
             if (command.equals("1")) {
-                CarOperations.create();
+                CarOperations.createRaw();
             } else if (command.equals("2")) {
                 CarOperations.getCar();
             } else if (command.equals("3")) {
@@ -44,6 +42,8 @@ public class Entry {
                 CarDao carDao = new CarDao();
                 Car car = carDao.getById(id);
                 CarOperations.change(car);
+            } else if (command.equals("5")) {
+                CarOperations.createTable();
             }
             Menu.printMenuCar();
             command = commandScanner.nextLine();
@@ -55,7 +55,7 @@ public class Entry {
         while (!command.equals("end")) {
 
             if (command.equals("1")) {
-                UserOperations.create();
+                UserOperations.createRaw();
             } else if (command.equals("2")) {
                 UserOperations.getUser();
             } else if (command.equals("3")) {
@@ -65,11 +65,11 @@ public class Entry {
                 Scanner idScanner = new Scanner(System.in);
                 int id = idScanner.nextInt();
 
-                UserDaoImpl userDao = new UserDaoImpl();
+                UserDao userDao = new UserDao();
                 User user = userDao.getById(id);
                 UserOperations.change(user);
             } else if (command.equals("5")) {
-                UserOperations.getCars();
+                UserOperations.createTable();
             }
             Menu.printMenuUser();
             command = commandScanner.nextLine();

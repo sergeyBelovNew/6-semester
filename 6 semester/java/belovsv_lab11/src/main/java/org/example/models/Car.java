@@ -3,7 +3,11 @@ package org.example.models;
 public class Car {
 
     private int id;
+
+    private int cost;
+
     private String model;
+
     private String color;
 
     public int getId() {
@@ -13,10 +17,12 @@ public class Car {
     public Car() {
     }
 
-    public Car(int id, String model, String color) {
-        this.id = id;
-        this.model = model;
-        this.color = color;
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 
     public void setId(int id) {
