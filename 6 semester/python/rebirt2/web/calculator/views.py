@@ -3,10 +3,17 @@ from .models import Equipment
 from .forms import EquipmentForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 
+import sys
+
+sys.path.append("..")
+
+from cart.forms import CartAddEquipmentForm
 
 def index_main(request):
     equipment = Equipment.objects.all()
-    dict_equipment = {'equipment': equipment}
+    сart_add_equipment_form = CartAddEquipmentForm
+    dict_equipment = {'сart_add_equipment_form': сart_add_equipment_form, 'equipment': equipment}
+
     return render(request, 'calculator/main.html', dict_equipment)
 
 

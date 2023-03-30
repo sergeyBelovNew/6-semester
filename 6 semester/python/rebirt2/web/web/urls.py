@@ -8,4 +8,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('news/', include('news.urls')),
     path('calculator/', include('calculator.urls')),
+    path('cart/', include('cart.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
