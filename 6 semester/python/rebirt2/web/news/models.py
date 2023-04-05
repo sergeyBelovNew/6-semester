@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Document(models.Model):
+    model_img = models.ImageField(upload_to='img/', default="")
     title = models.CharField('Название', max_length=50)
     ad = models.CharField('Анонс', max_length=50)
     full_text = models.TextField('Статья')

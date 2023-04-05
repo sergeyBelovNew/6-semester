@@ -1,39 +1,49 @@
+
 {% extends 'main/layout.html' %}
 {% load static %}
-{% block title_content %} Корзина {% endblock %}
+{% block title_content %}Корзина {% endblock %}
 
 {% block body_content %}
-<h1>Корзина товаров</h1>
-<table class="cart">
-    <thead>
-    <tr>
-        <th>Equipment</th>
-        <th>Quantity</th>
-        <th>Remove</th>
-        <th>Cost</th>
-        <th>Total cost</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for item in dict_cart %}
-    <tr>
-        <td>{{ item.equipment.title }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>
-            <form action="{% url "cart:remove_cart" equipment.id %}" method = "post">
-            <input typr="submit" value="Remove">
-            {% csrf_token %}
-            </form>
-        </td>
-        <td class="num">Rub{{ item.cost }}</td>
-        <td class="num">Rub{{ item.total_cost }}</td>
-    </tr>
-    {% endfor %}
-    <tr class="total">
-        <td>Total </td>
-        <td colspan = "4"> </td>
+    <h1>Ваши товары</h1>
+    <table class="cart">
+        <thead>
+        <tr>
+            <th>Изображение</th>
+            <th>Продукт</th>
+            <th>Количество</th>
+            <th>Удалить</th>
+            <th>Цена продукта</th>
+            <th>Итоговая стоимость</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+            {% with product=item.product %}
+                <tr>
+                      <td>
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="
+                                {% if product.model_img %}
+                                    {{ product.model_img.url }}
+                                {% else %}
+                                    {% static "img/no_image.png" %}
+                                {% endif %}"  width="300" height="255">
+                        </a>
+                    </td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><a href="{% url "cart:remove_cart" product.id%}">Удалить</a></td>
+                    <td class="num">Руб{{ item.cost }}</td>
+                    <td class="num">Руб{{ item.total_price }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+        <tr class="total">
+            <td>Итоговая стоимость</td>
+            <td colspan="4"></td>
+            <td class="num">Руб{{ cart.get_total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
 
-    </tr>
-    </tbody>
-</table>
 {% endblock %}

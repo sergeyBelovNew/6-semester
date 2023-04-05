@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Equipment(models.Model):
+    model_img = models.ImageField(upload_to='img/', default="")
     title = models.CharField('Название', max_length=50)
     type = models.CharField('Вид оборудования', max_length=50)
     description = models.TextField('Описание')

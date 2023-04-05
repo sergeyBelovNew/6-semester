@@ -7,61 +7,75 @@ from calculator.models import Equipment
 
 
 class Cart(object):
+
     def __init__(self, request):
-        # Инициализация корзины пользователя
+        """
+        Инициализируем корзину
+        """
         self.session = request.session
         cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
-            # Сохраняем корзину пользователя в сессию
+            # save an empty cart in the session
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
 
-    # Добавление товар в корзину пользователя
-    # или обновление количества товаров
-    def add(self, equipment, quantity=1, update_quantity=False):
-        equipment_id = str(equipment.id)
-        if equipment_id not in self.cart:
-            self.cart[equipment_id] = {'quantity': 0,
-                                     'cost': str(equipment.cost)}
+    def add(self, product, quantity=1, update_quantity=False):
+        """
+        Добавить продукт в корзину или обновить его количество.
+        """
+        product_id = str(product.id)
+        if product_id not in self.cart:
+            self.cart[product_id] = {'quantity': 0,
+                                     'cost': str(product.cost)}
         if update_quantity:
-            self.cart[equipment_id]['quantity'] = quantity
+            self.cart[product_id]['quantity'] = quantity
         else:
-            self.cart[equipment_id]['quantity'] += quantity
+            self.cart[product_id]['quantity'] += quantity
         self.save()
 
-        # Сохранение данных в сессию
     def save(self):
+        # Обновление сессии cart
         self.session[settings.CART_SESSION_ID] = self.cart
-        # Указываем, что сессия изменена
+        # Отметить сеанс как "измененный", чтобы убедиться, что он сохранен
         self.session.modified = True
 
-        # Удаление товара из корзины
     def remove(self, product):
-        product_id = str(product.id)
-        if product_id in self.cart:
-            del self.cart[product_id]
+        """
+        Удаление товара из корзины.
+        """
+        equipment_id = str(product.id)
+        if equipment_id in self.cart:
+            del self.cart[equipment_id]
             self.save()
 
-
-    # Итерация по товарам
     def __iter__(self):
         product_ids = self.cart.keys()
-        equipments = Equipment.objects.filter(id__in=product_ids)
-        for product in equipments:
-            self.cart[str(product.id)]['equipment'] = equipments
+        # получение объектов product и добавление их в корзину
+        products = Equipment.objects.filter(id__in=product_ids)
+        for product in products:
+            self.cart[str(product.id)]['product'] = product
 
         for item in self.cart.values():
             item['cost'] = Decimal(item['cost'])
             item['total_price'] = item['cost'] * item['quantity']
             yield item
 
-    # Количество товаро
     def __len__(self):
+        """
+        Подсчет всех товаров в корзине.
+        """
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['cost'])*item['quantity'] for item in self.cart.values())
+        """
+        Подсчет стоимости товаров в корзине.
+        """
+        return sum(Decimal(item['cost']) * item['quantity'] for item in
+                   self.cart.values())
 
     def clear(self):
+        # удаление корзины из сессии
         del self.session[settings.CART_SESSION_ID]
         self.session.modified = True
+
+

@@ -8,6 +8,7 @@ class DocumentForm(ModelForm):
         fields = ['id', 'title', 'ad', 'full_text', 'date']
 
         widgets = {
+
             "title": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': "Текст статьи"

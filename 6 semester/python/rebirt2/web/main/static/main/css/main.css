@@ -5,10 +5,14 @@ body {
 .topnav {
     background-color: #0099ff;
     overflow: hidden;
+    position: fixed;
+    width: 1900px;
+    height: 110px;
+
 }
 
 .topnav  img {
-    width: 150px;
+    width: 120px;
     float: left;
 }
 

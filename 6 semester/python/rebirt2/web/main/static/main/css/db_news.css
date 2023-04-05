@@ -5,4 +5,8 @@
     margin: 20px 32%;
     text-align: center;
     width: 400px;
+    background: lavender;
+    position: static;
+    z-index:1;
+
 }

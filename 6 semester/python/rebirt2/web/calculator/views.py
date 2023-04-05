@@ -1,17 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import Equipment
-from .forms import EquipmentForm
-from django.views.generic import DetailView, UpdateView, DeleteView
 
+from .forms import EquipmentForm
+from .models import Equipment
+from django.views.generic import DetailView, UpdateView, DeleteView
 import sys
 
 sys.path.append("..")
-
-from cart.forms import CartAddEquipmentForm
-
+from cart.forms import CartAddProductForm
 def index_main(request):
     equipment = Equipment.objects.all()
-    сart_add_equipment_form = CartAddEquipmentForm
+    сart_add_equipment_form = CartAddProductForm
     dict_equipment = {'сart_add_equipment_form': сart_add_equipment_form, 'equipment': equipment}
 
     return render(request, 'calculator/main.html', dict_equipment)
