@@ -1,5 +1,5 @@
 body {
-    background: #ffeeaa;
+    background:#FFFFFF;
 }
 
 .topnav {
@@ -7,12 +7,11 @@ body {
     overflow: hidden;
     position: fixed;
     width: 1900px;
-    height: 110px;
-
+    height: 100px;
 }
 
 .topnav  img {
-    width: 120px;
+    width: 115px;
     float: left;
 }
 
@@ -21,15 +20,15 @@ body {
     margin-left: 40px;
     font-weight: bold;
     position: relative;
-    top: -5px;
+    top: -20px;
 }
 
 .topnav  ul {list-style: none}
 .topnav  ul li {
     color: #ffffee;
     display: inline;
-    margin-top: 20px;
-    margin-right : 3px;
+    margin-top: 0px;
+    margin-right : 0px;
     transition: transition .6s easy;
     float: left;
     text-align: center;

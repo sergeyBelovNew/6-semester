@@ -6,6 +6,10 @@
 <div class="features">
     <h2>Создатели</h2>
     <p>Сайт создан студентами РУТ(МИИТ), группы ТКИ-342</p>
-    <button class="btn btn-warning">Back on main page</button>
+     <div>
+        <button type="button" class="btn btn-warning" id="s_button"
+                onclick="window.open('{% url 'home' %}')">На главную страницу
+        </button>
+    </div>
 </div>
 {% endblock %}

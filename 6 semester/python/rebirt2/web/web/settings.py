@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cart',
     'calculator',
     'bootstrap4',
+    'fontawesomefree'
 ]
 
 MIDDLEWARE = [

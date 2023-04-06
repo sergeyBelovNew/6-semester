@@ -16,7 +16,7 @@
         <form action="{% url "cart:add_cart" el.id %}" method="post">
         {% csrf_token %}
         {{ сart_add_equipment_form }}
-        <input type="submit" value="Добавить в корзину">
+        <input type="submit" value="Добавить в калькулятор">
         </form>
     </div>
     {% endfor %}
