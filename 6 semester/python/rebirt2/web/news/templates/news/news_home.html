@@ -7,19 +7,17 @@
     <h1>Новости</h1>
     {% if news %}
     {% for el in news %}
-    <div class="alert alert-warning">
-        <img src="{{ el.model_img.url }}"  width="300" height="255">
-        <h3>{{ el.title }}</h3>
-        <p>{{ el.ad }}</p>
-        <a href="{% url 'detail_news' el.id %}" class="button btn-warning">Подробнее</a>
-    </div>
+    <img src="{{ el.model_img.url }}" width="300" height="255">
+    <h3>{{ el.title }}</h3>
+    <p>{{ el.ad }}</p>
+    <a href="{% url 'detail_news' el.id %}" class="button btn-warning">Подробнее</a>
+    <br>
+    <br>
     {% endfor %}
     {% else %}
     <p>Нету записей</p>
     {% endif %}
-    <a href="{% url 'create_news' %}"><button class="btn btn-success">Добавить запись</button></a>
     <br>
-    <button class="btn btn-warning">Back on main page</button>
 </div>
 
 {% endblock %}
