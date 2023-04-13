@@ -3,22 +3,25 @@
 {% block title_content %}Оборудование{% endblock %}
 
 {% block body_content %}
-<div class="features" xmlns="http://www.w3.org/1999/html">
+<div class="features" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <h1>Расчет стоимости оборудования</h1>
     {% if equipment %}
     {% for el in equipment %}
-        <img src="{{ el.model_img.url }}"  width="300" height="255">
-        <h3>{{ el.title }}</h3>
+        <div class="img_calc">
+            <img src="{{ el.model_img.url }}"  width="300" height="255">
+        </div>
+        <div class="el_title">
+        <h3><a href="{% url 'detail_equipment' el.id %}" class="button btn-warning">{{ el.title }}</a></h3>
         <p>{{ el.type }}</p>
-        <a href="{% url 'detail_equipment' el.id %}" class="button btn-warning">Подробнее</a>
+        </div>
+        <br>
+        <br>
         <br>
         <form action="{% url "cart:add_cart" el.id %}" method="post">
-            {% csrf_token %}
-            {{ сart_add_equipment_form }}
-                <input type="submit" value="Добавить в калькулятор">
+        {% csrf_token %}
+        {{ сart_add_equipment_form }}
+        <input type="submit" value="Добавить в калькулятор">
         </form>
-    <br>
-    <br>
     {% endfor %}
     {% else %}
     <p>Нет записей</p>

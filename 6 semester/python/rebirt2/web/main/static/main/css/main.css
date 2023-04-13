@@ -20,34 +20,15 @@ header {
 }
     
 form {
-    position: absolute;
+    position: relative;
     width: 70%;
     height: 50%;
     left: 12.5%;
-    top: 25%;
+    top: 75%;
 }
 
-input {
-    margin: auto;
-    top: 50%;
-    background: ;
-    mix-blend-mode: lighten;
-    border-radius: 50px;
     
-    width: 100%;
-    height: 80%;
-    padding-left: 2vw;
-    border-radius: 30px;
-    outline: none;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.25vw;
-    line-height: 24px;
-}
-    
-button {
+.search_button {
     height: 3vw;
     width: 3vw;
     position: absolute;
@@ -150,6 +131,11 @@ html {
     left: -7%;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -167,3 +153,39 @@ html {
 }
 
 .dropdown-content a:hover {background-color: #ddd;}
+
+.img_calc {
+    margin: auto;
+    width: 50%;
+    border: 1px solid;
+}
+
+.el_title {
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 1.2vw;
+    background-color: #f1f1f1;
+    margin: auto;
+    width: 50%;
+}
+
+.more {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 1vw;
+}
+
+.btn_add_ {
+    position: relative;
+    width: 70%;
+    top: 25%;
+}
+
+button btn-warning {
+    color: #FFFFFF;
+}
+
+.btn btn-success {
+    width: 50%;
+}

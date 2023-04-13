@@ -24,7 +24,7 @@
         </div>
         <form>
             <input type="text" name="text" class="search" placeholder="Поиск...">
-            <button type="submit"><div class="img_search">
+            <button type="submit" class="search_button"><div class="img_search">
                 <i class="fa-solid fa-magnifying-glass fa-beat-fade" style="color: #FFFFFF"></i>
             </div></button>
         </form>
@@ -40,10 +40,20 @@
                 <li><i class="fa-solid fa-person-military-pointing"></i> Каталог средств ИБ</li>
             </a>
 
-            <a href="{% url 'general_docs' %}">
-                <li><i class="fa-solid fa-rocket"></i> Обзор документов по ИБ</li>
-            </a>
-            <a href="{% url 'about' %}">
+          <div class="dropdown">
+                <a href="{% url 'general_docs' %}">
+                     <li><i class="fa-solid fa-rocket"></i> Обзор документов по ИБ</li>
+                </a>
+                    <div class="dropdown-content">
+                            <a href="#">Федеральные законы</a>
+                            <a href="#">Указы Президента</a>
+                            <a href="#">Приказы Правительства</a>
+                            <a href="#">Приказы Министерств</a>
+                            <a href="#">Приказы Государственных служб</a>
+                            <a href="#">Муниципальные законы</a>
+                    </div>
+          </div>
+              <a href="{% url 'about' %}">
                 <li><i class="fa-solid fa-address-card"></i> Информация о проекте</li>
             </a>
           </ul>
