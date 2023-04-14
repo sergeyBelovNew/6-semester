@@ -4,12 +4,21 @@
 
 {% block body_content %}
 <div class="features">
-    <img src="{{ article.model_img.url }}"  width="300" height="255">
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.type }}</p>
-    <p>{{ article.description }}</p>
-    <p>{{ article.cost }}</p>
-    <a href="{% url 'update_equipment' article.id %}"><button class="btn btn-info">Изменить запись</button></a>
-    <a href="{% url 'delete_equipment' article.id %}"><button class="btn btn-danger">Удалить запись</button></a>
+    <div class="el_change">
+        <div class="img_change">
+             <img src="{{ article.model_img.url }}"  object-fit:cover width="100%" height="100%">
+        </div>
+        <div class="el_text_change">
+            <h1>{{ article.title }}</h1>
+            <p>Тип: {{ article.type }}</p>
+            <p>Стоимость: {{ article.cost }}</p>
+        </div>
+    </div>
+    <div class="el_description">
+        <h2>Описание</h2>
+        <p>{{ article.description }}</p>
+    </div>
+     <a href="{% url 'update_equipment' article.id %}"><button class="btn btn-info">Изменить запись</button></a>
+     <a href="{% url 'delete_equipment' article.id %}"><button class="btn btn-danger">Удалить запись</button></a
 </div>
 {% endblock %}

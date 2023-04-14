@@ -1,6 +1,11 @@
 import sys
 from decimal import Decimal
 from django.conf import settings
+import locale
+# if using *nix
+
+locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+
 
 sys.path.append("..")
 from calculator.models import Equipment
@@ -48,6 +53,9 @@ class Cart(object):
             del self.cart[equipment_id]
             self.save()
 
+    def convert_ruble_to_decimals(self, rubles):
+        return Decimal(locale.atoi(rubles.strip('₽')))
+
     def __iter__(self):
         product_ids = self.cart.keys()
         # получение объектов product и добавление их в корзину
@@ -56,7 +64,7 @@ class Cart(object):
             self.cart[str(product.id)]['product'] = product
 
         for item in self.cart.values():
-            item['cost'] = Decimal(item['cost'])
+            item['cost'] = self.convert_ruble_to_decimals(item['cost'])
             item['total_price'] = item['cost'] * item['quantity']
             yield item
 

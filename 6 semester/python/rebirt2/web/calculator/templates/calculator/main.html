@@ -4,24 +4,30 @@
 
 {% block body_content %}
 <div class="features" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-    <h1>Расчет стоимости оборудования</h1>
-    {% if equipment %}
-    {% for el in equipment %}
-        <div class="img_calc">
-            <img src="{{ el.model_img.url }}"  width="300" height="255">
+    <div class="title_all">
+        <h1>Расчет стоимости оборудования</h1>
+    </div>
+        {% if equipment %}
+        {% for el in equipment %}
+        <div class="el_review" onclick="location.href='{% url 'detail_equipment' el.id %}';">
+            <div class="img_calc">
+                <img src="{{ el.model_img.url }}"  object-fit:cover width="100%" height="100%">
+            </div>
+            <div class="el_text_review">
+                <div class="el_title_review">
+                    <h3>{{ el.title }}</h3>
+                </div>
+                <p>{{ el.type }}</p>
+                <br>
+            </div>
+                <div class="form_add">
+                    <form action="{% url 'cart:add_cart' el.id %}" method="post">
+                        {% csrf_token %}
+                        {{ сart_add_equipment_form }}
+                        <input type="submit" value="Добавить в калькулятор">
+                    </form>
+                </div>
         </div>
-        <div class="el_title">
-        <h3><a href="{% url 'detail_equipment' el.id %}" class="button btn-warning">{{ el.title }}</a></h3>
-        <p>{{ el.type }}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <form action="{% url "cart:add_cart" el.id %}" method="post">
-        {% csrf_token %}
-        {{ сart_add_equipment_form }}
-        <input type="submit" value="Добавить в калькулятор">
-        </form>
     {% endfor %}
     {% else %}
     <p>Нет записей</p>
