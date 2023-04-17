@@ -1,6 +1,4 @@
-body {
-    background-color: #F1F0F2;
-}
+body {background-color: #F1F0F2;}
 
 header {
     position: absolute;
@@ -50,18 +48,16 @@ form {
     width: 3vw;
     position: absolute;
     top: 20px;
-    right: 0%;
+    right: 5%;
     border-radius: 100%;
-    background: #2946A0;
+    background-color: #3357C7;
     mix-blend-mode: lighten;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #3357C7;
-}
+button:hover {background-color: #;}
 
 nav {
     background-color: #2946A0;
@@ -115,9 +111,7 @@ main .img_docs {
     vertical-align: top;
 }
 
-.title_all {
-    display: inline-block;
-}
+.title_all {display: inline-block;}
 
 .title_all a{
     display: inline-block;
@@ -147,9 +141,7 @@ footer {
     color: #FFFFFF;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html {scroll-behavior: smooth;}
 
 .footer_logo {
     text-align: center;
@@ -157,6 +149,11 @@ html {
     height: 1.2vw;
     width: 1.2vw;
     left: -7%;
+}
+
+.miit {
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .dropdown {
@@ -194,15 +191,11 @@ html {
     top: 25%;
 }
 
-.btn btn-success {
-    width: 50%;
-}
+.btn btn-success {width: 50%;}
 
-add.calc {
-    width: 50%;
-}
+add.calc {width: 50%;}
 
-table {
+.cart {
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -211,16 +204,14 @@ table {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
+    border-collapse: collapse;
+    border: 2px solid white;
 }
 
-th a{
-    height: 2vw;
-    padding: 2vw;
-}
-
-td {
-    height: 2vw;
-    padding: 2vw;
+.cart td {
+    height: 1vw;
+    padding: 1.5vw;
+    border: 2px solid white;
 }
 
 .el_review {
@@ -236,9 +227,7 @@ td {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.el_review div {
-    display: inline-block;
-}
+.el_review div {display: inline-block;}
 
 .el_text_review {
     display: block;
@@ -272,9 +261,7 @@ td {
     border: 1px solid #F0F0F0;
 }
 
-.el_change div {
-    display: inline-block;
-}
+.el_change div {display: inline-block;}
 
 .img_change {
     float: left;
@@ -300,9 +287,7 @@ td {
     padding: 0.5vw;
 }
 
-.el_description h2 {
-    text-align: center;
-}
+.el_description h2 {text-align: center;}
 
 .el_description p {
     font-style: normal;
@@ -313,20 +298,25 @@ td {
     font-style: normal;
     font-size: 1.2vw;
     text-decoration: none;
-    color: black;
-    background-color: #F0F0F0;
+    color: #B3B3B3;
+    cursor: pointer;
+    background-color: #FFFFFF;
     border-radius: 10%;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    padding-left: 1vw;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
+    border: 1px solid #E6E6E6;
+    float: left;
 }
+
+.back:hover {transform: scale(1.05);}
 
 .img_docs {
     width: 800px;
     height: 350px;
     border: 1px solid #F0F0F0;
+}
+
+.document_schema {
+    position: relative;
+    margin-right: auto;
 }
 
 .img_cart {
@@ -338,4 +328,70 @@ td {
 .cart a {
     text-decoration: none;
     color: black;
+}
+
+.btn_delete {
+    padding: 1vw;
+    background-color: #F0F0F0;
+    border: 1px solid #C2C2C2;
+}
+
+.btn_delete:hover {background-color: #D9D9D9;}
+
+.table_docs,td,th {
+    border-collapse: collapse;
+    border: 1px solid #C2C2C2;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6vw;
+    height: 3vw;
+    padding: 0.5vw;
+}
+
+.table_docs td:nth-child(even){background-color: #f2f2f2}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  font-size: 14px
+}
+
+/* Текст подсказки */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Подсказка стрелка */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Отображение текста подсказки при наведении курсора мыши на контейнер подсказки */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

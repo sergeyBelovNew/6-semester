@@ -4,6 +4,9 @@
 
 {% block body_content %}
 <div class="features">
+    <input type="button" onclick="history.back();" value="Назад" class="back"/>
+    <br>
+    <br>
     <div class="el_change">
         <div class="img_change">
              <img src="{{ article.model_img.url }}"  object-fit:cover width="100%" height="100%">
@@ -11,7 +14,7 @@
         <div class="el_text_change">
             <h1>{{ article.title }}</h1>
             <p>Тип: {{ article.type }}</p>
-            <p>Стоимость: {{ article.cost }}</p>
+            <p>Стоимость: {{ article.cost }} ₽</p>
         </div>
     </div>
     <div class="el_description">

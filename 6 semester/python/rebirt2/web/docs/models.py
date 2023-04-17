@@ -6,6 +6,7 @@ class GeneralDocument(models.Model):
     title = models.CharField('Название', max_length=50)
     ad = models.CharField('Вид', max_length=50)
     full_text = models.TextField('Статья')
+    doc_file = models.FileField(upload_to='doсs', blank=True)
     date = models.DateTimeField('Дата публикации')
 
     def __str__(self):

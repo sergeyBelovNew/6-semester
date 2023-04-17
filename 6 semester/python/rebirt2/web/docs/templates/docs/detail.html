@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title_content %}Документы{% endblock %}
+
+{% block body_content %}
+<div class="features">
+    <input type="button" onclick="history.back();" value="Назад" class="back"/>
+    <br>
+    <br>
+    <img src="{{ article.model_img.url }}" object-fit:cover width="50%" height="50%">
+    <div class="el_change">
+        <div class="el_text_change">
+            <h1>{{ article.title }}</h1>
+            <p>Тип: {{ article.ad }}</p>
+            <p>Текст: {{ article.full_text }}</p>
+            <p>Файл: {{ article.doc_file }}</p>
+            <p>Дата: {{ article.date }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

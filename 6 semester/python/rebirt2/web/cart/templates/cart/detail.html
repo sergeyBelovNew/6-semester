@@ -5,6 +5,8 @@
 
 {% block body_content %}
 <div class="features">
+    <input type="button" onclick="history.back();" value="Назад" class="back"/>
+    <br>
     <div class="title_all">
         <h1>Оценка оборудования</h1>
     </div>
@@ -21,23 +23,20 @@
                     </div>
                 </td>
                 <td><a href="{{ product.get_absolute_url }}"><h3>{{ product.title }}</a></h3></td>
-                <td>{{ item.quantity }}</td>
-                <td class="num">{{ item.cost }} ₽</td>
-                <td class="num">{{ item.total_price }} ₽</td>
-                <td><a href="{% url 'cart:remove_cart' product.id%}">Удалить</a></td>
+                <td><h4>{{ item.quantity }} шт</h4></td>
+                <td class="num"><h4>{{ item.cost }} ₽/ед</h4></td>
+                <td class="num"><h4>{{ item.total_price }} ₽</h4></td>
+                <td><a href="{% url 'cart:remove_cart' product.id%}" class="btn_delete">Удалить</a></td>
             </tr>
                 {% endwith %}
                 {% endfor %}
             <tr class="total">
-                <td>Итоговая стоимость</td>
+                <td><h3>Итого:</h3></td>
                 <td colspan="3"></td>
-                <td class="num">{{ cart.get_total_price }} ₽</td>
+                <td class="num"><h3>{{ cart.get_total_price }} ₽</h3></td>
             </tr>
         </tbody>
     </table>
-    <div class="title_all">
-        <a href="{% url 'calculator' %}" class="back">Назад</a>
-    </div>
 </div>
 
 {% endblock %}

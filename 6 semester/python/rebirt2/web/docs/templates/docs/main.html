@@ -5,6 +5,8 @@
 {% block body_content %}
 
 <div class="features">
+    <input type="button" onclick="history.back();" value="Назад" class="back"/>
+    <br>
     <h1>Основы правовой защиты информации</h1>
     <h2>Определение информационной безопасности</h2>
     <p>Угроза информационной безопасности организации — это совокупность факторов и условий,
@@ -23,22 +25,214 @@
         <p>7)Приказы государственных служб</p>
         <p>8)Муниципальные законы</p>
     </ul>
-    <h2>Схема основных документов</h2>
-    <div class="img_docs">
-         <img src="{% static 'main/img/site_img/2.jpg' %}" alt="Схема документов" object-fit:cover width="100%" height="100%">
-    </div>
-    {% if news %}
-    {% for el in news %}
+    <br>
+    <h2>Таблица основных документов</h2>
+    <table class="table_docs">
+        <thead>
+            <tr>
+                <td>
+                    <div class="tooltip">ФЗ-152
+                         <span class="tooltiptext">О персональных данных</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-187
+                        <span class="tooltiptext">О безопасности КИИ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-5485
+                        <span class="tooltiptext">О государственной тайне</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-184 →
+                        <span class="tooltiptext">О техническом регулировании</span>
+                    </div>
+                    <div class="tooltip">ФЗ-412
+                        <span class="tooltiptext">Об аккредитации в национальной системе аккредитации</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-149
+                    <span class="tooltiptext">Об информации, ИТ и о ЗИ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-98
+                    <span class="tooltiptext">О коммерческой тайне</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-68
+                    <span class="tooltiptext">О защите населения и территорий от чрезвычайных ситуаций природного и техногенного характера</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">ФЗ-63
+                    <span class="tooltiptext">Об электронной подписи</span>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="tooltip">Указ Президента-188
+                    <span class="tooltiptext">Перечень сведений конфиценциального характера</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Указ Президента-250
+                    <span class="tooltiptext">О дополнительных мерах по обеспечению ИБ РФ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Указ Президента-188
+                    <span class="tooltiptext">Перечень сведений конфиценциального характера</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-55
+                    <span class="tooltiptext">О системе сертификации СЗИ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ Правительства-676
+                    <span class="tooltiptext">Требования к порядку создания, развития, введения в эксплуатацию ИС</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Указ Президента-188
+                    <span class="tooltiptext">Перечень сведений конфиценциального характера</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-31
+                    <span class="tooltiptext">Требования к обеспечению ЗИ в АСУ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ Правительства-1233
+                    <span class="tooltiptext">Требования к защите ПДн</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="tooltip">Приказ Правительства-1119
+                    <span class="tooltiptext">Требования к защите ПДн</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Указ Президента-166
+                    <span class="tooltiptext">О мерах по обеспечению технологической независимости и безопасности КИИ РФ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Модель ИТР-2025
+                    <span class="tooltiptext">Модель иностранных технических разведок на период до 2025 года</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ 326 МинЭкономРазвития
+                    <span class="tooltiptext">Критерии аккредитации</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-17
+                    <span class="tooltiptext">Требования о ЗИ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">СТР-К
+                    <span class="tooltiptext">Специальные требованиия и рекомендации к технической защите информации</span>
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-21
+                    <span class="tooltiptext">Состав и содержание организационных и технических мер по обеспечению безопасности ПДн</span>
+                    </div>
+                </td>
+            <tr>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-21
+                    <span class="tooltiptext">Состав и содержание организационных и технических мер по обеспечению безопасности ПДн</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Приказ Правительства-127
+                    <span class="tooltiptext">Правила категорирования объектов КИИ</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">Инструкция 3.1
+                    <span class="tooltiptext">Порядок доступа должностных лиц и граждан РФ к гостайне</span>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-235
+                        <span class="tooltiptext">Требования к созданию систем безопасности значимых объектов КИИ</span>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+           <tr>
+                <td></td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-236
+                        <span class="tooltiptext">Присвоение объекту КИИ одной из категории значимости</span>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+           <tr>
+                <td></td>
+                <td>
+                    <div class="tooltip">Приказ ФСТЭК-239
+                        <span class="tooltiptext">Требования по обеспечению безопасности объектов КИИ РФ</span>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    {% if docs %}
+    {% for el in docs %}
     <img src="{{ el.model_img.url }}" width="300" height="255">
     <h3>{{ el.title }}</h3>
     <p>{{ el.ad }}</p>
-    <a href="{% url 'detail_news' el.id %}" class="button btn-warning">Подробнее</a>
+    <a href="{% url 'general_docs_detail' el.id %}" class="button btn-warning">Подробнее</a>
     <br>
     <br>
     {% endfor %}
     {% else %}
-    <p>Нету записей</p>
+    <p>Нет записей</p>
     {% endif %}
-    <br>
 </div>
 {% endblock %}

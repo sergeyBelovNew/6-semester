@@ -4,34 +4,43 @@
 
 {% block body_content %}
 <div class="features" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <input type="button" onclick="history.back();" value="Назад" class="back"/>
+    <br>
     <div class="title_all">
         <h1>Расчет стоимости оборудования</h1>
     </div>
-        {% if equipment %}
-        {% for el in equipment %}
-        <div class="el_review" onclick="location.href='{% url 'detail_equipment' el.id %}';">
-            <div class="img_calc">
-                <img src="{{ el.model_img.url }}"  object-fit:cover width="100%" height="100%">
-            </div>
-            <div class="el_text_review">
-                <div class="el_title_review">
-                    <h3>{{ el.title }}</h3>
-                </div>
-                <p>{{ el.type }}</p>
-                <br>
-            </div>
-                <div class="form_add">
-                    <form action="{% url 'cart:add_cart' el.id %}" method="post">
-                        {% csrf_token %}
-                        {{ сart_add_equipment_form }}
-                        <input type="submit" value="Добавить в калькулятор">
-                    </form>
-                </div>
+    <br><br>
+    {% if equipment %}
+    {% for el in equipment %}
+    <div class="el_review">
+        <div class="img_calc" onclick="location.href='{% url 'detail_equipment' el.id %}';">
+            <img src="{{ el.model_img.url }}" object-fit:cover width="100%" height="100%">
         </div>
+        <div class="el_text_review" onclick="location.href='{% url 'detail_equipment' el.id %}';">
+            <div class="el_title_review">
+                <h3>{{ el.title }}</h3>
+            </div>
+            <p>{{ el.type }}</p>
+            <br>
+        </div>
+        <div class="form_add">
+            <form action="{% url 'cart:add_cart' el.id %}" method="post">
+                {% csrf_token %}
+                {{ сart_add_equipment_form }}
+                <input type="submit" value="Добавить">
+            </form>
+        </div>
+    </div>
     {% endfor %}
     {% else %}
     <p>Нет записей</p>
     {% endif %}
+    <br>
+    <form action="{% url 'cart:detail_cart' %}" method="post">
+        {% csrf_token %}
+        {{ detail_cart }}
+        <input type="submit" value="Перейти в корзину">
+    </form>
     <br>
 </div>
 {% endblock %}
