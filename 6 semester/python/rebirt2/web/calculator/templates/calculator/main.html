@@ -4,12 +4,20 @@
 
 {% block body_content %}
 <div class="features" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
+    <div class="btn_back">
+        <a href="#" onclick="history.back();return false;" class="history-back"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i></a>
+    </div>
     <div class="title_all">
         <h1>Расчет стоимости оборудования</h1>
     </div>
-    <br><br>
+    <br>
+    <form action="{% url 'cart:detail_cart' %}" method="post">
+        {% csrf_token %}
+        {{ detail_cart }}
+        <input type="submit" value="Перейти в корзину" class="btn_back_cart">
+    </form>
+    <br>
+    <br>
     {% if equipment %}
     {% for el in equipment %}
     <div class="el_review">
@@ -35,12 +43,5 @@
     {% else %}
     <p>Нет записей</p>
     {% endif %}
-    <br>
-    <form action="{% url 'cart:detail_cart' %}" method="post">
-        {% csrf_token %}
-        {{ detail_cart }}
-        <input type="submit" value="Перейти в корзину">
-    </form>
-    <br>
 </div>
 {% endblock %}

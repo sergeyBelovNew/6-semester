@@ -3,9 +3,10 @@
 {% block title_content %}Новости{% endblock %}
 
 {% block body_content %}
+<div class="form_back">
+    <input type="button" onclick="history.back();" value="Назад" class="btn_back"/>
+</div>
 <div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
     <h1>Новости</h1>
     {% if news %}
     {% for el in news %}

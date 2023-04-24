@@ -2,10 +2,9 @@ from django.db import models
 
 
 class GeneralDocument(models.Model):
-    model_img = models.ImageField(upload_to='img/', default="")
     title = models.CharField('Название', max_length=50)
-    ad = models.CharField('Вид', max_length=50)
-    full_text = models.TextField('Статья')
+    ad = models.CharField('Тип документа', max_length=50)
+    full_text = models.TextField('Текст документа')
     doc_file = models.FileField(upload_to='doсs', blank=True)
     date = models.DateTimeField('Дата публикации')
 

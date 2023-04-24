@@ -5,38 +5,41 @@
 
 {% block body_content %}
 <div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
+    <div class="btn_back">
+        <a href="#" onclick="history.back();return false;" class="history-back"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i></a>
+    </div>
     <div class="title_all">
         <h1>Оценка оборудования</h1>
     </div>
-    <table class="cart">
-        <tbody>
-            {% for item in cart %}
-            {% with product=item.product %}
-            <tr>
-                 <td>
-                    <div class="img_cart">
-                        <a href="{{ product.get_absolute_url }}">
-                        <img src=" {% if product.model_img %} {{ product.model_img.url }} {% else %} {% static "img/no_image.png" %}
-                             {% endif %}" object-fit:cover width="100%" height="100%"> </a>
-                    </div>
-                </td>
-                <td><a href="{{ product.get_absolute_url }}"><h3>{{ product.title }}</a></h3></td>
-                <td><h4>{{ item.quantity }} шт</h4></td>
-                <td class="num"><h4>{{ item.cost }} ₽/ед</h4></td>
-                <td class="num"><h4>{{ item.total_price }} ₽</h4></td>
-                <td><a href="{% url 'cart:remove_cart' product.id%}" class="btn_delete">Удалить</a></td>
-            </tr>
-                {% endwith %}
-                {% endfor %}
-            <tr class="total">
-                <td><h3>Итого:</h3></td>
-                <td colspan="3"></td>
-                <td class="num"><h3>{{ cart.get_total_price }} ₽</h3></td>
-            </tr>
-        </tbody>
-    </table>
+        {% for item in cart %}
+        {% with product=item.product %}
+        <div class="el_cart">
+            <div class="img_cart">
+                <a href="{{ product.get_absolute_url }}">
+                    <img src=" {% if product.model_img %} {{ product.model_img.url }} {% else %} {% static "img/no_image.png" %}
+                    {% endif %}" object-fit:cover width="100%" height="100%">
+                </a>
+            </div>
+            <div class="el_text_cart">
+                <div class="el_name">
+                    <a href="{{ product.get_absolute_url }}"><h3>{{ product.title }}</h3></a>
+                    <a href="{% url 'cart:remove_cart' product.id%}" class="btn_delete">Удалить</a>
+                </div>
+                <div class="el_price">
+                    <h2>{{ item.quantity }}</h2>
+                    <p>{{ item.cost }} ₽/шт</p>
+                </div>
+                <div class="el_total_price">
+                    <h3>{{ item.total_price }} ₽</h3>
+                    <p>&nbsp</p>
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+        {% endfor %}
+        <br>
+        <div class="total_cart">
+            <h3>Итого: {{ cart.get_total_price }} ₽</h3>
+        </div>
 </div>
-
 {% endblock %}

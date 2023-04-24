@@ -19,56 +19,54 @@
 </head>
 <body>
     <header>
-        <div class="logo" id="header" onclick="slowScroll('#top')">
-             <img src="{% static 'main/img/site_img/logo_5.png' %}" alt="logo" width="100%"  height="100%">
-        </div>
-        <form class="search">
-            <input type="text" name="text" class="search" placeholder="Поиск...">
-            <button type="submit" class="search_button"><div class="img_search">
-                <i class="fa-solid fa-magnifying-glass fa-beat-fade" style="color: #FFFFFF"></i>
-            </div></button>
-        </form>
-        <nav>
-          <ul>
+        <div class="img_logo" id="header" onclick="slowScroll('#top')">
             <a href="{% url 'home' %}">
-                <li><i class="fa-solid fa-house"></i> Основная страница</li>
+                <img src="{% static 'main/img/site_img/logo_5.png' %}" alt="logo" width="100%"  height="100%">
             </a>
-            <a href="{% url 'news_home' %}">
-                 <li><i class="fa-solid fa-newspaper"></i> Новости</li>
-            </a>
-            <a href="{% url 'calculator' %}">
-                <li><i class="fa-solid fa-person-military-pointing"></i> Каталог средств ИБ</li>
-            </a>
+        </div>
+        <form class="form_search">
+            <input type="text" name="text" class="line_search" placeholder="Поиск...">
+            <button type="submit" class="btn_search">
+                <div class="img_search">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                </div>
+            </button>
+        </form>
+        <form action="{% url 'cart:detail_cart' %}" method="post">
+            {% csrf_token %}
+            {{ detail_cart }}
+        <button class="btn_cart"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i></button>
+        </form>
+        <ul class="full-width">
+            <li>
+                <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Основная страница</a>
+            </li>
 
-          <div class="dropdown">
-                <a href="{% url 'general_docs' %}">
-                     <li><i class="fa-solid fa-rocket"></i> Обзор документов по ИБ</li>
-                </a>
-                    <div class="dropdown-content">
-                            <a href="#">Федеральные законы</a>
-                            <a href="#">Указы Президента</a>
-                            <a href="#">Приказы Правительства</a>
-                            <a href="#">Приказы Министерств</a>
-                            <a href="#">Приказы Государственных служб</a>
-                            <a href="#">Муниципальные законы</a>
-                    </div>
-          </div>
-              <a href="{% url 'about' %}">
-                <li><i class="fa-solid fa-address-card"></i> Информация о проекте</li>
-            </a>
-          </ul>
-        </nav>
+            <li>
+                <a href="{% url 'calculator' %}"><i class="fa-solid fa-person-military-pointing"></i> Каталог средств ИБ</a>
+            </li>
+
+            <li>
+                <a href="{% url 'general_docs' %}"><i class="fa-solid fa-rocket"></i> Обзор документов по ИБ</a>
+                <ul>
+                    <li><a href="#">Федеральные законы</a></li>
+                    <li><a href="#">Указы Президента</a></li>
+                    <li><a href="#">Приказы Правительства</a></li>
+                    <li><a href="#">Приказы Министерств</a></li>
+                    <li><a href="#">Приказы Государственных служб</a></li>
+                    <li><a href="#">Муниципальные законы</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'about' %}"><i class="fa-solid fa-address-card"></i> О создателях</a>
+            </li>
+        </ul>
     </header>
 <main>
     {% block body_content %} {% endblock %}
 </main>
 </body>
 <footer>
-    <div class="footer_text">
-        <div class="footer_logo">
-            <a href="#header"><img src="{% static 'main/img/site_img/logo.png' %}" class="footer_logo" height="25"></a>
-        </div>
-         <a href="https://www.miit.ru/" class="miit">© 2023 "Российский университет транспорта"</a>
-    </div>
+    <p>Белов. Круглов. Пшеницын</p>
 </footer>
 </html>

@@ -3,73 +3,88 @@
 {% block title_content %}Основы правовой защиты информации{% endblock %}
 
 {% block body_content %}
-
 <div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
+    <div class="btn_back">
+        <a href="#" onclick="history.back();return false;" class="history-back"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i></a>
+    </div>
     <h1>Основы правовой защиты информации</h1>
-    <h2>Определение информационной безопасности</h2>
-    <p>Угроза информационной безопасности организации — это совокупность факторов и условий,
-        создающих опасность нарушения информационной безопасности организации,
-        вызывающую или способную вызвать негативные последствия (ущерб/вред) для организации. (ГОСТ Р 53114-2008).</p>
+    <h2>Виды документов</h2>
+        <div class="el_type_docs">
+        <div class="el_name_type_docs">
+            <a href="#">Федеральные законы</a>
+        </div>
+    </div>
+    <div class="el_type_docs">
+        <div class="el_name_type_docs">
+            <a href="#">Указы Президента</a>
+        </div>
+    </div>
+    <div class="el_type_docs">
+        <div class="el_name_type_docs">
+            <a href="#">Приказы Правительства</a>
+        </div>
+    </div>
+    <div class="el_type_docs">
+        <div class="el_name_type_docs">
+            <a href="#">Приказы Министерств</a>
+        </div>
+    </div>
+    <div class="el_type_docs">
+        <div class="el_name_type_docs">
+            <a href="#">Приказы Государственных служб</a>
+        </div>
+    </div>
+    <div class="el_type_docs">
+        <div class="el_name_type_docs">
+             <a href="#">Муниципальные законы</a>
+        </div>
+    </div>
     <br>
-    <h2>Иерархия документов в Российской Федерации</h2>
-    <p>Документы в Российской Федерации разделяются на 8 уроней приоретета:</p>
-    <ul>
-        <p>1)Конституция РФ</p>
-        <p>2)Международные акты</p>
-        <p>3)Федеральные законы(ФЗ)</p>
-        <p>4)Указы президента</p>
-        <p>5)Приказы правительства</p>
-        <p>6)Приказы министерств</p>
-        <p>7)Приказы государственных служб</p>
-        <p>8)Муниципальные законы</p>
-    </ul>
-    <br>
+
     <h2>Таблица основных документов</h2>
     <table class="table_docs">
         <thead>
             <tr>
                 <td>
-                    <div class="tooltip">ФЗ-152
+                    <div class="tooltip"><a href="#">ФЗ-152</a>
                          <span class="tooltiptext">О персональных данных</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-187
+                    <div class="tooltip"><a href="#">ФЗ-187</a>
                         <span class="tooltiptext">О безопасности КИИ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-5485
+                    <div class="tooltip"><a href="#">ФЗ-5485</a>
                         <span class="tooltiptext">О государственной тайне</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-184 →
+                    <div class="tooltip"><a href="#">ФЗ-184</a> →
                         <span class="tooltiptext">О техническом регулировании</span>
                     </div>
-                    <div class="tooltip">ФЗ-412
+                    <div class="tooltip"><a href="#">ФЗ-412</a>
                         <span class="tooltiptext">Об аккредитации в национальной системе аккредитации</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-149
+                    <div class="tooltip"><a href="#">ФЗ-149</a>
                     <span class="tooltiptext">Об информации, ИТ и о ЗИ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-98
+                    <div class="tooltip"><a href="#">ФЗ-98</a>
                     <span class="tooltiptext">О коммерческой тайне</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-68
+                    <div class="tooltip"><a href="#">ФЗ-68</a>
                     <span class="tooltiptext">О защите населения и территорий от чрезвычайных ситуаций природного и техногенного характера</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">ФЗ-63
+                    <div class="tooltip"><a href="#">ФЗ-63</a>
                     <span class="tooltiptext">Об электронной подписи</span>
                     </div>
                 </td>
@@ -78,96 +93,96 @@
         <tbody>
             <tr>
                 <td>
-                    <div class="tooltip">Указ Президента-188
+                    <div class="tooltip"><a href="#">Указ Президента-188</a>
                     <span class="tooltiptext">Перечень сведений конфиценциального характера</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Указ Президента-250
+                    <div class="tooltip"><a href="#">Указ Президента-250</a>
                     <span class="tooltiptext">О дополнительных мерах по обеспечению ИБ РФ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Указ Президента-188
+                    <div class="tooltip"><a href="#">Указ Президента-188</a>
                     <span class="tooltiptext">Перечень сведений конфиценциального характера</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-55
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-55</a>
                     <span class="tooltiptext">О системе сертификации СЗИ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ Правительства-676
+                    <div class="tooltip"><a href="#">Приказ Правительства-676</a>
                     <span class="tooltiptext">Требования к порядку создания, развития, введения в эксплуатацию ИС</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Указ Президента-188
+                    <div class="tooltip"><a href="#">Указ Президента-188</a>
                     <span class="tooltiptext">Перечень сведений конфиценциального характера</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-31
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-31</a>
                     <span class="tooltiptext">Требования к обеспечению ЗИ в АСУ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ Правительства-1233
+                    <div class="tooltip"><a href="#">Приказ Правительства-1233</a>
                     <span class="tooltiptext">Требования к защите ПДн</span>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div class="tooltip">Приказ Правительства-1119
+                    <div class="tooltip"><a href="#">Приказ Правительства-1119</a>
                     <span class="tooltiptext">Требования к защите ПДн</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Указ Президента-166
+                    <div class="tooltip"><a href="#">Указ Президента-166</a>
                     <span class="tooltiptext">О мерах по обеспечению технологической независимости и безопасности КИИ РФ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Модель ИТР-2025
+                    <div class="tooltip"><a href="#">Модель ИТР-2025</a>
                     <span class="tooltiptext">Модель иностранных технических разведок на период до 2025 года</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ 326 МинЭкономРазвития
+                    <div class="tooltip"><a href="#">Приказ 326 МинЭкономРазвития</a>
                     <span class="tooltiptext">Критерии аккредитации</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-17
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-17</a>
                     <span class="tooltiptext">Требования о ЗИ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">СТР-К
+                    <div class="tooltip"><a href="#">СТР-К</a>
                     <span class="tooltiptext">Специальные требованиия и рекомендации к технической защите информации</span>
                     </div>
                 </td>
                 <td></td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-21
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-21</a>
                     <span class="tooltiptext">Состав и содержание организационных и технических мер по обеспечению безопасности ПДн</span>
                     </div>
                 </td>
             <tr>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-21
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-21</a>
                     <span class="tooltiptext">Состав и содержание организационных и технических мер по обеспечению безопасности ПДн</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Приказ Правительства-127
+                    <div class="tooltip"><a href="#">Приказ Правительства-127</a>
                     <span class="tooltiptext">Правила категорирования объектов КИИ</span>
                     </div>
                 </td>
                 <td>
-                    <div class="tooltip">Инструкция 3.1
+                    <div class="tooltip"><a href="#">Инструкция 3.1</a>
                     <span class="tooltiptext">Порядок доступа должностных лиц и граждан РФ к гостайне</span>
                     </div>
                 </td>
@@ -180,7 +195,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-235
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-235</a>
                         <span class="tooltiptext">Требования к созданию систем безопасности значимых объектов КИИ</span>
                     </div>
                 </td>
@@ -194,7 +209,7 @@
            <tr>
                 <td></td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-236
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-236</a>
                         <span class="tooltiptext">Присвоение объекту КИИ одной из категории значимости</span>
                     </div>
                 </td>
@@ -208,7 +223,7 @@
            <tr>
                 <td></td>
                 <td>
-                    <div class="tooltip">Приказ ФСТЭК-239
+                    <div class="tooltip"><a href="#">Приказ ФСТЭК-239</a>
                         <span class="tooltiptext">Требования по обеспечению безопасности объектов КИИ РФ</span>
                     </div>
                 </td>
@@ -224,10 +239,7 @@
     <br>
     {% if docs %}
     {% for el in docs %}
-    <img src="{{ el.model_img.url }}" width="300" height="255">
-    <h3>{{ el.title }}</h3>
-    <p>{{ el.ad }}</p>
-    <a href="{% url 'general_docs_detail' el.id %}" class="button btn-warning">Подробнее</a>
+    <a href="{% url 'general_docs_detail' el.id %}" class="button btn-warning"><h3>{{ el.title }}</h3></a>
     <br>
     <br>
     {% endfor %}

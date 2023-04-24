@@ -3,9 +3,9 @@
 {% block title_content %}Удаление статьи{% endblock %}
 
 {% block body_content %}
-<div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
+    <div class="btn_back">
+        <a href="#" onclick="history.back();return false;" class="history-back"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i></a>
+    </div>
     <h1>Удаление статьи</h1>
     <br>
     <form method="post">

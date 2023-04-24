@@ -4,9 +4,14 @@
 
 {% block body_content %}
 <div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
+    <div class="btn_back">
+        <a href="#" onclick="history.back();return false;" class="history-back"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i></a>
+    </div>
     <h1>Создатели</h1>
-    <h2>Сайт создан студентами РУТ(МИИТ), группы ТКИ-342</h2>
+    <h2>Сайт создан студентами РУТ(МИИТ)</h2>
+    <h3>Контакты:
+    <a href=""><i class="fa-brands fa-vk fa-2xl" style="color: #1660df;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href=""><i class="fa-brands fa-telegram fa-2xl" style="color: #29a1dd;"></i></a>
+    </h3>
 </div>
 {% endblock %}

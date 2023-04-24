@@ -3,10 +3,12 @@
 {% block title_content %}Главная страница{% endblock %}
 
 {% block body_content %}
-
-<div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
+<div class="youtube-video-background">
+    <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/BH4oRqlpVLY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=BH4oRqlpVLY" allowfullscreen></iframe>
+   </div>
+</div>
+<div class="main_content">
     <h1>{{ title }}</h1>
     <h2>{{ text }}</h2>
 </div>

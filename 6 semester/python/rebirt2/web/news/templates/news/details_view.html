@@ -3,9 +3,10 @@
 {% block title_content %}Новости сайта{% endblock %}
 
 {% block body_content %}
+<div class="form_back">
+    <input type="button" onclick="history.back();" value="Назад" class="btn_back"/>
+</div>
 <div class="features">
-    <input type="button" onclick="history.back();" value="Назад" class="back"/>
-    <br>
     <img src="{{ article.model_img.url }}"  width="300" height="255">
     <h1>{{ article.title }}</h1>
     <p>{{ article.full_text }}</p>
